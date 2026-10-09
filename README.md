@@ -43,10 +43,11 @@ docker compose up -d --build
 
 API доступен по адресу `http://localhost:8080`
 
-### 3. Установка зависимостей
+### 3. Установка зависимостей и генерация ключа
 
 ```bash
 docker compose exec app composer install
+docker compose exec app php artisan key:generate
 ```
 
 ### 4. Выполнить миграции
@@ -123,6 +124,6 @@ docker compose exec app php artisan test
 1. Открой Postman.
 2. Нажми **Import**.
 3. Выбери файл коллекции.
-4. Выполни запрос получения токена `POST /api/token` и скопируй из ответа `token` в переменную `token` в настройках переменных коллекции (Variables) и сохрани изменения 
+4. Выполни запрос получения токена `POST /api/token` и скопируй из ответа `token` в переменную `token` в настройках переменных коллекции (Variables), установи значение `base_url` - `http://localhost:8080/api` и сохрани изменения 
 5. Выполняй запросы к API.
 
